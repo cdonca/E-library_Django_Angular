@@ -1,0 +1,27 @@
+<div class="card-group">
+  <div class="col-md-3">
+    <div class="sticky-top">
+      <div class="list-group">
+        <a routerLink="/aboutus" class="list-group-item list-group-item-action">O nama</a>
+        <a routerLink="/guide" class="list-group-item list-group-item-action">Vodič za korisnike</a>
+        <a routerLink="/news" class="list-group-item list-group-item-action">Vesti</a>
+        <a routerLink="/gallery" class="list-group-item list-group-item-action" [class.active]="true">Galerija</a>
+        <a routerLink="/contact" class="list-group-item list-group-item-action">Kontakt</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-9">
+    <div class="gallery">
+      <ul id="list">
+        <li *ngFor="let slika of slikas">
+          <div class="card" style="width:16rem">
+            <img class="card-img" src="{{ slika.img }}" alt="slika">
+            <div class="card-footer">
+              <p class="card-title">{{ slika.opis }}</p>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

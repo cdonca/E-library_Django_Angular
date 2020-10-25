@@ -1,0 +1,32 @@
+<div class="card-group">
+  <div class="col-md-3">
+    <div class="sticky-top">
+      <div class="list-group">
+        <a routerLink="/elibrary" class="list-group-item list-group-item-action" [class.active]="true">Sve knjige</a>
+        <a routerLink="/zanrist" class="list-group-item list-group-item-action">Istorijski romani</a>
+        <a routerLink="/zanrkrimi" class="list-group-item list-group-item-action">Kriminalistika</a>
+        <a routerLink="/zanrkom" class="list-group-item list-group-item-action">Komedija</a>
+        <a routerLink="/zanrpub" class="list-group-item list-group-item-action">Publicistika</a>
+        <a routerLink="/zanrljub" class="list-group-item list-group-item-action">Ljubavne drame</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-9">
+    <div class="elibrary">
+      <ul id="list">
+        <li *ngFor="let knjiga of knjigas">
+          <div *ngIf="knjiga.naziv" class="card" style="width:16rem">
+            <img *ngIf="knjiga.img" class="card-img" src="{{ knjiga.img }}" alt="{{knjiga.naziv}}">
+            <div class="card-body">
+              <h4 class="card-title">{{ knjiga.naziv }}</h4>
+              <p class="card-text">{{ knjiga.autor }}</p>
+            </div>
+            <div class="card-footer">
+              <button mat-button (click)="openDialog(knjiga)" class="btn btn-outline-info btn-block">Detalji</button>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  </div>

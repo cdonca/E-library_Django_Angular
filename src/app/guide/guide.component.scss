@@ -1,0 +1,29 @@
+h1, li {
+  font-family: Cambria, sans-serif;
+}
+
+li {
+  font-size: 24px;
+}
+
+h1 {
+  font-size: 38px;
+}
+
+.list-group-item {
+  background-color: wheat;
+}
+
+.active {
+  background-color: rgb(48, 52, 66);
+  border-color: #73402d;
+}
+
+.list-group-item:hover {
+  background-color: #73402d;
+  color: snow;
+}
+
+a {
+  font-size: 20px;
+}

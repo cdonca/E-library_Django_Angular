@@ -1,0 +1,53 @@
+  <nav class="navbar navbar-expand-lg navbar-light">
+  <a class="navbar-brand" routerLink="/"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/">Naslovna</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/elibrary">Knjige</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/aboutus">O nama</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/guide">Vodič za korisnike</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/news">Vesti</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/gallery">Galerija</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/contact">Kontakt</a>
+      </li>
+      <li ngbDropdown class="nav-item dropdown">
+        <a ngbDropdownToggle class="nav-link dropdown-toggle" (click)="addLoginInfo()" id="dropdown08" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Korisnička podrška</a>
+        <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown08">
+          <div *ngIf="idClana != null;else login">
+            <div *ngIf="rola == 'clan';else administracija">
+              <a class="dropdown-item" routerLink="/borrowing">Vaše rezervacije i zaduženja</a>
+              <a class="dropdown-item" routerLink="/logout">Odjavite se!</a>
+            </div>
+            <ng-template #administracija>
+              <a class="dropdown-item" routerLink="/book">Upravljanje knjigama</a>
+              <a class="dropdown-item" routerLink="/user">Dodavanje i uklanjanje članova</a>
+              <a class="dropdown-item" routerLink="/updateborrowing">Upravljanje zaduženjima i rezervacijama</a>
+              <a class="dropdown-item" routerLink="/updategallery">Dodavanje i uklanjanje slike</a>
+              <a class="dropdown-item" routerLink="/updatenews">Dodavanje i uklanjanje događaja</a>
+              <a class="dropdown-item" routerLink="/logout">Odjavite se!</a>
+            </ng-template>
+          </div>
+          <ng-template #login>
+            <a class="dropdown-item" routerLink="/login">Prijavite se!</a>
+          </ng-template>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>

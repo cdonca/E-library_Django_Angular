@@ -1,0 +1,46 @@
+<div class="row">
+  <div class="col-md-9">
+    <ul id="list">
+      <li *ngFor="let knjiga of knjigas">
+        <div *ngIf="knjiga.naziv" class="card" style="width:16rem">
+          <img *ngIf="knjiga.img" class="card-img" src="{{ knjiga.img }}" alt="slika">
+          <div class="card-body">
+            <h4 class="card-title">{{ knjiga.naziv }}</h4>
+            <p class="card-text">{{ knjiga.autor }}</p>
+          </div>
+          <div class="card-footer">
+            <button (click)="knjigaClicked(knjiga)" class="btn btn-outline-info btn-block">Detalji</button>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="col-md-3">
+    <form>
+      Naziv knjige:
+      <input type="text" (change)="handleNazivInput($event)" [(ngModel)]="selectedBook.naziv" name="naziv" class="form-control">
+      Autor knjige:
+      <input type="text" (change)="handleAutorInput($event)" [(ngModel)]="selectedBook.autor" name="autor" class="form-control">
+      Izdavač knjige:
+      <input type="text" (change)="handleIzdavacInput($event)" [(ngModel)]="selectedBook.izdavac" name="izdavac" class="form-control">
+      Godina izdanja knjige:
+      <input type="number" (change)="handleGodIzdInput($event)" [(ngModel)]="selectedBook.godina_izdanja" name="godinaIzdanja" class="form-control">
+      Žanr knjige:
+      <input type="text" (change)="handleZanrInput($event)" [(ngModel)]="selectedBook.zanr" name="zanr" class="form-control">
+      Pismo:
+      <input type="text" (change)="handlePismoInput($event)" [(ngModel)]="selectedBook.pismo" name="pismo" class="form-control">
+      Broj primeraka knjige:
+      <input type="number" (change)="handleBrPrInput($event)" [(ngModel)]="selectedBook.broj_primeraka" name="brojPrimeraka" class="form-control">
+      Broj strana knjige:
+      <input type="number" (change)="handleBrStrInput($event)" [(ngModel)]="selectedBook.broj_strana" name="brojStrana" class="form-control">
+      Vrsta poveza knjige:
+      <input type="text" (change)="handleVrstaPovezaInput($event)" [(ngModel)]="selectedBook.vrsta_poveza" name="vrstaPoveza" class="form-control">
+      <label for="slika">Slika:</label><br>
+      <input type="file" id="file" (change)="onImageChanged($event)" name="slika" class="form-control-file">
+      <button class="btn btn-outline-primary" *ngIf="selectedBook.id != -1" (click)="azurirajKnjigu()">Uredi knjigu!</button>
+      <button class="btn btn-outline-success" (click)="dodajKnjigu()">Dodaj novu knjigu!</button>
+      <button class="btn btn-outline-success" (click)="registerPrimerak()">Dodaj primerke za knjigu!</button>
+      <button class="btn btn-outline-danger" *ngIf="selectedBook.id != -1" (click)="deleteKnjiga()">Ukloni knjigu!</button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,47 @@
+h1 {
+  font-family: Cambria, sans-serif;
+}
+
+h1 {
+  font-size: 38px;
+}
+
+.list-group-item {
+  background-color: wheat;
+}
+
+.active {
+  background-color: rgb(48, 52, 66);
+  border-color: #73402d;
+}
+
+.list-group-item:hover {
+  background-color: #73402d;
+  color: snow;
+}
+
+a {
+  font-size: 20px;
+}
+
+.card-img {
+  width: 255px;
+  height: 350px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  float: left;
+}
+
+.card-footer {
+  background-color: rgb(48, 52, 66);
+  color: snow;
+}
+
+p {
+  font-size: 16px;
+}

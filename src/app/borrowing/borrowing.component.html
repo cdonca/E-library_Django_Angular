@@ -1,0 +1,38 @@
+<div class="col-md-12">
+  <h1>Spisak rezervacija</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Datum rezervacije</th>
+        <th>Id knjige</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let rezervacija of rezervacije">
+        <td>{{ rezervacija.datum_rezervacije | date:'short'}}</td>
+        <td>{{ rezervacija.id_knjige }}</td>
+        <td><button (click)="rezervacijaClicked(rezervacija)" class="btn btn-outline-danger">Ukloni rezervaciju!</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="col-md-12">
+  <h1>Spisak zaduženja</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Datum zaduženja</th>
+        <th>Datum vraćanja</th>
+        <th>Inventarni broj primerka</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let zaduzenje of zaduzenja">
+        <td>{{ zaduzenje.datum_zaduzenja | date: 'longDate' }}</td>
+        <td>{{ zaduzenje.datum_vracanja | date: 'longDate' }}</td>
+        <td>{{ zaduzenje.inv_broj }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

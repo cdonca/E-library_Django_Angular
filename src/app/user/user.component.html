@@ -1,0 +1,45 @@
+<div class="card-group">
+      <div class="col-md-9">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Korisnik</th>
+              <th>Ime</th>
+              <th>Prezime</th>
+              <th>Email</th>
+              <th>Vrsta korisnika</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let korisnik of korisniks">
+              <td>{{ korisnik.username }}</td>
+              <td>{{ korisnik.ime }}</td>
+              <td>{{ korisnik.prezime }}</td>
+              <td>{{ korisnik.email }}</td>
+              <td>{{ korisnik.rola }}</td>
+              <td><button (click)="korisnikClicked(korisnik)" class="btn btn-outline-danger btn-block">Izbriši korisnika!</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md-3">
+        <form>
+          <div class="form-group">
+            <label for="username">Korisničko ime: </label>
+            <input type="text" [(ngModel)]="selectedUser.username" name="username" class="form-control">
+            <label for="password">Šifra: </label>
+            <input type="password" [(ngModel)]="selectedUser.password" name="password" class="form-control">
+            <label for="email">Email: </label>
+            <input type="text" [(ngModel)]="selectedUser.email" name="email" class="form-control">
+            <label for="ime">Ime: </label>
+            <input type="text" [(ngModel)]="selectedUser.ime" name="ime" class="form-control">
+            <label for="prezime">Prezime: </label>
+            <input type="text" [(ngModel)]="selectedUser.prezime" name="prezime" class="form-control">
+            <label for="rola">Vrsta korisnika: </label>
+            <input type="text" [(ngModel)]="selectedUser.rola" placeholder="clan\bibliotekar" name="rola" class="form-control">
+          </div>
+          <button class="btn btn-outline-success" (click)="registerKorisnik()">Dodaj novog korisnika!</button>
+        </form>
+      </div>
+    </div>

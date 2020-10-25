@@ -1,0 +1,21 @@
+  <div mat-dialog-content class="mat-typography">
+    <div *ngIf="selectedBook.naziv" class="card" style="width:16rem">
+      <img *ngIf="selectedBook.img" class="card-img" src="{{ selectedBook.img }}" alt="{{selectedBook.naziv}}">
+      <div class="card-body">
+        <h4 class="card-title">Naziv knjige: {{ selectedBook.naziv }}</h4>
+        <p class="card-text">Autor knjige: {{ selectedBook.autor }}</p>
+        <p class="card-text">Izdavač: {{ selectedBook.izdavac }}</p>
+        <p class="card-text">Žanr: {{ selectedBook.zanr }}</p>
+        <p class="card-text">Pismo: {{ selectedBook.pismo }}</p>
+        <p class="card-text">Godina izdanja: {{ selectedBook.godina_izdanja }}</p>
+        <p class="card-text">Vrsta poveza: {{ selectedBook.vrsta_poveza }}</p>
+        <p class="card-text">Broj strana: {{ selectedBook.broj_strana }}</p>
+      </div>
+      <div class="card-footer">
+        <button mat-button (click)="rezervacija()" class="btn btn-outline-info btn-block">Rezerviši</button>
+      </div>
+    </div>
+  </div>
+  <div class="foot" mat-dialog-actions>
+    <button class="btn btn-outline-danger btn-block" (click)="removeItems()" mat-button mat-dialog-close>Close</button>
+  </div>

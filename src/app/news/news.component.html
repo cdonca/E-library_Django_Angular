@@ -1,0 +1,30 @@
+<div class="card-group">
+  <div class="col-md-3">
+    <div class="sticky-top">
+      <div class="list-group">
+        <a routerLink="/aboutus" class="list-group-item list-group-item-action">O nama</a>
+        <a routerLink="/guide" class="list-group-item list-group-item-action">Vodič za korisnike</a>
+        <a routerLink="/news" class="list-group-item list-group-item-action" [class.active]="true">Vesti</a>
+        <a routerLink="/gallery" class="list-group-item list-group-item-action">Galerija</a>
+        <a routerLink="/contact" class="list-group-item list-group-item-action">Kontakt</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-9">
+    <div class="news">
+      <ul id="list">
+        <li *ngFor="let dogadjaj of dogadjajs">
+          <div class="card" style="width:16rem">
+            <div class="card-header">
+              <p class="card-title">{{ dogadjaj.opis }}</p>
+            </div>
+            <img class="card-img" src="{{ dogadjaj.img }}" alt="slika">
+            <div class="card-footer">
+              <p class="card-text">Datum: {{ dogadjaj.datum }}</p>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

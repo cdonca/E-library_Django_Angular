@@ -1,0 +1,27 @@
+<div class="card-group">
+  <div class="col-md-9">
+    <div class="gallery">
+      <ul id="list">
+        <li *ngFor="let slika of slikas">
+          <div class="card" (click)="slikaClicked(slika)" style="width:16rem">
+            <img class="card-img" src="{{ slika.img }}" alt="slika">
+            <div class="card-footer">
+              <p class="card-title">{{ slika.opis }}</p>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="form-group">
+      <form>
+        <h1>Dodaj novu sliku:</h1><br>
+        Opis slike:<input type="text" id="opis" (change)="handleOpisInput($event)" [(ngModel)]="selectedPic.opis" name="opis" class="form-control">
+        Odaberi sliku:<input type="file" id="file" (change)="handleFileInput($event)" name="img">
+        <button class="btn btn-outline-success" type="button" (click)="dodajSliku()">Dodaj sliku!</button>
+        <button class="btn btn-outline-danger" type="button" (click)="izbrisiSliku()">Izbriši sliku!</button>
+      </form>
+    </div>
+  </div>
+</div>

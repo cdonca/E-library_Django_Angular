@@ -1,0 +1,32 @@
+<div class="card-group">
+  <div class="col-md-9">
+    <div class="news">
+      <ul id="list">
+        <li *ngFor="let dogadjaj of dogadjajs">
+          <div class="card" (click)="dogadjajClicked(dogadjaj)" style="width:16rem">
+            <div class="card-header">
+              <p class="card-title">{{ dogadjaj.opis }}</p>
+            </div>
+            <img class="card-img" src="{{ dogadjaj.img }}" alt="slika">
+            <div class="card-footer">
+              <p class="card-text">Datum: {{ dogadjaj.datum }}</p>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="form-group">
+      <form>
+        <h1>Dodaj novi ili izmeni postojeći događaj:</h1><br>
+        Opis događaja: <input type="text" id="opis" (change)="handleOpisInput($event)" [(ngModel)]="selectedNews.opis" name="opis" class="form-control">
+        Datum održavanja: <input type="date" id="datum" (change)="handleDatumInput($event)" [(ngModel)]="selectedNews.datum" name="datum" class="form-control">
+        Odaberi sliku: <input type="file" id="file" (change)="handleFileInput($event)" name="img">
+        <button class="btn btn-outline-success" type="button" (click)="addDogadjaj()">Dodaj novi događaj!</button>
+        <button class="btn btn-outline-info" type="button" (click)="updateDogadjaj()">Ažuriraj izabrani događaj!</button>
+        <button class="btn btn-outline-danger" type="button" (click)="deleteDogadjaj()">Izbriši izabrani događaj!</button>
+      </form>
+    </div>
+  </div>
+</div>

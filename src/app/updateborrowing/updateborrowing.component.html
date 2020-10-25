@@ -1,0 +1,77 @@
+<div class="card-group">
+  <div class="col-md-9">
+    <h1>Spisak zaduženja</h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Datum zaduženja</th>
+          <th>Datum vraćanja</th>
+          <th>Inventarni broj primerka</th>
+          <th>Id člana</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let zaduzenje of zaduzenja">
+          <td>{{ zaduzenje.datum_zaduzenja | date: 'longDate' }}</td>
+          <td>{{ zaduzenje.datum_vracanja | date: 'longDate' }}</td>
+          <td>{{ zaduzenje.inv_broj }}</td>
+          <td>{{ zaduzenje.id_clana }}</td>
+          <td><button (click)="zaduzenjeClicked(zaduzenje)" class="btn btn-outline-danger btn-block">Ukloni zaduženje!</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-md-3">
+    <h1>Dodavanje novog zaduženja</h1>
+    <form>
+      <div class="form-group">
+        <label for="datumZaduzenja">Datum zaduženja knjige: </label>
+        <input type="date" [(ngModel)]="selectedZaduzenje.datum_zaduzenja" name="datum_zaduzenja" class="form-control">
+        <label for="datumVracanja">Datum kada bi korisnik trebao da vrati knjigu: </label>
+        <input type="date" [(ngModel)]="selectedZaduzenje.datum_vracanja" name="datum_vracanja" class="form-control">
+        <label for="invBroj">Inventarni broj primerka: </label>
+        <input type="number" [(ngModel)]="selectedZaduzenje.inv_broj" name="inv_broj" class="form-control">
+        <label for="idClana">Id člana: </label>
+        <input type="number" [(ngModel)]="selectedZaduzenje.id_clana" name="id_clana" class="form-control">
+      </div>
+      <button class="btn btn-outline-success" (click)="registerZaduzenje()">Dodaj novo zaduženje!</button>
+    </form>
+  </div>
+</div>
+<hr>
+<div class="card-group">
+  <div class="col-md-9">
+    <h1>Spisak rezervacija</h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Datum rezervacije</th>
+          <th>Id knjige</th>
+          <th>Id člana</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let rezervacija of rezervacije">
+          <td>{{ rezervacija.datum_rezervacije | date:'short'}}</td>
+          <td>{{ rezervacija.id_knjige }}</td>
+          <td>{{ rezervacija.id_clana }}</td>
+          <td><button (click)="rezervacijaClicked(rezervacija)" class="btn btn-outline-danger btn-block">Ukloni rezervaciju!</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-md-3">
+    <h1>Dodavanje nove rezervacije</h1>
+    <form>
+      <div class="form-group">
+        <label for="idKnjige">Id knjige: </label>
+        <input type="number" [(ngModel)]="selectedRezervacija.id_knjige" name="id_knjige" class="form-control">
+        <label for="idClana">Id člana: </label>
+        <input type="number" [(ngModel)]="selectedRezervacija.id_clana" name="id_clana" class="form-control">
+      </div>
+      <button class="btn btn-outline-success" (click)="registerRezervacija()">Dodaj novu rezervaciju!</button>
+    </form>
+  </div>
+</div>

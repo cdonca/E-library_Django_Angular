@@ -1,0 +1,18 @@
+<div class="login">
+  <h4>Unesite podatke kako biste se logovali:</h4>
+  <div class="col-md-4">
+    <form>
+      <div class="form-group">
+        <label for="id">Vaš id/Članski broj: </label>
+        <input type="number" [(ngModel)]="selectedUser.id" name="id" class="form-control">
+        <label for="username">Korisničko ime: </label>
+        <input type="text" [(ngModel)]="selectedUser.username" name="username" class="form-control">
+        <label for="password">Šifra: </label>
+        <input type="password" [(ngModel)]="selectedUser.password" name="password" class="form-control">
+        <label for="password">Vrsta korisnika: </label>
+        <input type="text" [(ngModel)]="selectedUser.rola" name="password" placeholder="clan/bibliotekar/menadzer" class="form-control">
+      </div>
+        <button class="btn btn-outline-success" (click)="login()">Uloguj se!</button>
+    </form>
+  </div>
+</div>
