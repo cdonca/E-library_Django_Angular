@@ -1,0 +1,3 @@
+[submodule "E-library_Django_Angular"]
+	path = E-library_Django_Angular
+	url = https://github.com/nikolatorma/E-library_Django_Angular.git
